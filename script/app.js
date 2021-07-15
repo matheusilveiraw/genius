@@ -1,23 +1,29 @@
 
 function btnGreenClick() { 
     confereJogo(0)
+    new Audio('audios/clicou.mp3').play()
 }
 
 function btnRedClick() { 
     confereJogo(1)
-    
+    new Audio('audios/clicou.mp3').play()
+
 }
 
 function btnBlueClick() { 
     confereJogo(2)
+    new Audio('audios/clicou.mp3').play()
 }
 
 function btnYellowClick() { 
     confereJogo(3)
+    new Audio('audios/clicou.mp3').play()
+
 }
 
 function comecarJogo() { 
 
+    new Audio('audios/comecou.wav').play()
 
     //console.log('começa jogo')
     desabilitarComandos(2)
@@ -139,29 +145,34 @@ function piscaCor() {
             btnGreen.style = "background-color: rgb(0, 128, 0);"
             btnRed.style = "background-color: red;"
             btnBlue.style = "background-color: blue;"
-            btnYellow.style = "background-color: amarelo;"
+            btnYellow.style = "background-color: yellow;"
             //clearTimeout(y)
         }, 500)
 
+        
 
         switch(cores[i]) {
             case 0:
                 btnGreen.style = "background-color: rgb(52, 167, 52);"
+                new Audio('audios/piscou.mp3').play()
                 //console.log(i + 'verde')
             break
     
             case 1:
                 btnRed.style = "background-color: rgb(199, 62, 62);"
+                new Audio('audios/piscou.mp3').play()
                 //console.log(i + 'vermelho')
             break
     
             case 2:
                 btnBlue.style = "background-color: rgb(52, 52, 245)"
+                new Audio('audios/piscou.mp3').play()
                 //console.log(i + 'azul')
             break
         
             case 3:
                 btnYellow.style = "background-color: rgb(255, 255, 75)"
+                new Audio('audios/piscou.mp3').play()
                 //console.log(i + 'amarelo')
             break
         }
@@ -175,8 +186,7 @@ function piscaCor() {
             habilitarComandos()
             desabilitarComandos(1)
             //confereJogo()
-        }
-            
+        }       
     },1000)
 }
 
@@ -222,6 +232,7 @@ function confereJogo(btn = 5) {
         //console.log('Errou!')
         jogada = 0
         btnStart.innerText = 'Perdeu! Reinicie!'
+        new Audio('audios/perdeu.mp3').play()
         cores = []
         localStorage.setItem('cores', JSON.stringify(cores))
         desabilitarComandos(2)
