@@ -220,13 +220,30 @@ function confereJogo(btn = 5) {
         pontuacaoAtual += 2
         salvaPontuacao(pontuacaoAtual)
 
-        if(jogada == cores.length) { 
-            btnStart.innerText = 'Comece o próximo round!'
-            jogada = 0
-            desabilitarComandos()
-            habilitarComandos(1)
-            faseAtual += 1
-            salvaFaseAtual(faseAtual)
+        if(jogada == cores.length) {
+            
+            ///AQUI QUE O NÃO PARA VAI
+
+            let nPara = document.getElementById('n-para')
+
+            if(nPara.checked == true) { 
+                //console.log('checado')
+                jogada = 0
+                faseAtual += 1
+                salvaFaseAtual(faseAtual)
+                desabilitarComandos()
+                comecarJogo()
+            } else { 
+                //console.log('n checado')
+                btnStart.innerText = 'Comece o próximo round!'
+                jogada = 0
+                desabilitarComandos()
+                habilitarComandos(1)
+                faseAtual += 1
+                salvaFaseAtual(faseAtual)
+            }
+
+
         }
     } else if(btn != cores[jogada]) { 
         //console.log('Errou!')
